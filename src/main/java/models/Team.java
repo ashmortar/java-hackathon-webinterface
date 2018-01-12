@@ -7,7 +7,7 @@ public class Team {
     private String name;
     private String description;
     private ArrayList<String> members = new ArrayList<>();
-    public static ArrayList<Team> instances = new ArrayList<>();
+    private static ArrayList<Team> instances = new ArrayList<>();
     private int id;
 
 
@@ -41,7 +41,7 @@ public class Team {
         members.add(name);
     }
 
-    public void udpateName(String name) {
+    public void updateName(String name) {
         this.name = name;
     }
 
@@ -52,5 +52,13 @@ public class Team {
     //class wide (static) methods
     public static void deleteAllTeams() {
         instances.clear();
+    }
+
+    public static ArrayList<Team> getAllTeams() {
+        return instances;
+    }
+
+    public static Team findTeamById(int id) {
+        return instances.get(id-1);
     }
 }
