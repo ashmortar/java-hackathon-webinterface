@@ -38,4 +38,31 @@ public class TeamTest {
         testTeam.addMember("Ross");
         assertEquals(4, testTeam.getMembers().size());
     }
+
+    @Test
+    public void updateName_changesNameCorrectly_true() {
+        Team testTeam = setupNewTeam();
+        testTeam.udpateName("Muggles");
+        assertEquals("Muggles", testTeam.getName());
+    }
+
+    @Test
+    public void updateDescription_changesDescriptionCorrectly_true() {
+        Team testTeam = setupNewTeam();
+        testTeam.updateDescription("a slightly different description now");
+        assertEquals("a slightly different description now", testTeam.getDescription());
+    }
+
+    @Test
+    public void deleteAllTeams_clearsAllInstancesOfTeam_true() {
+        Team testTeam = setupNewTeam();
+        Team.deleteAllTeams();
+        assertEquals(0, Team.instances.size());
+    }
+//    @Test
+//    public void getIg_returnsIdCorrectly_true() {
+//        Team testTeam = setupNewTeam();
+//        Team secondTeam = setupNewTeam();
+//        assertEquals(2, secondTeam.getId());
+//    }
 }
