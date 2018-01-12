@@ -1,0 +1,23 @@
+{{#partial "content"}}
+    <h3>{{team.name}}</h3>
+    <p>{{team.description}}</p>
+    <ul>Members:
+    {{#each team.members}}
+        <li>{{this}}</li>
+    {{/each}}
+    </ul>
+    <hr>
+    <h5>add a new member:</h5>
+    <form action="/teams/{{team.id}}/member/new" method="post">
+        <label for="member-name">Member name:</label>
+        <input id="member-name" name="member-name" type="text">
+        <br>
+        <button class="btn btn-default" type="submit">Add</button>
+    </form>
+    <br>
+    <a href="/teams/{{team.id}}/update">Update team name/description</a>
+    <br>
+    <a href="/"><button class="btn btn-default"><</button> </a>
+{{/partial}}
+
+{{> layout.hbs}}

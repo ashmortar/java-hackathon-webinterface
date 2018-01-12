@@ -15,7 +15,20 @@ public class App{
     public static void main(String[] args) {
         staticFileLocation("/public");
 
-        //get: landing page per guidelines will show all teams and descriptions
+        //dummy teams for use in testing
+        Team sleepHabits = new Team("Better Sleep Habits", "we are setting out to make an app that will help the user easily track their sleep habits and help them to make improvements with scientifically backed suggestions");
+        sleepHabits.addMember("Aaron Ross");
+        sleepHabits.addMember("Most Students");
+        sleepHabits.addMember("Another Human");
+        sleepHabits.addMember("CoolGuy McFriendyface");
+
+        Team charityRater = new Team("Charity Tracker", "our goal is to create an app that rates charities based on their impact on the world so that the end userr can choose wisely how to spend their limited resources");
+        charityRater.addMember("Human 1");
+        charityRater.addMember("quixote");
+        charityRater.addMember("g00n$13");
+
+
+    //get: landing page per guidelines will show all teams and descriptions
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             ArrayList<Team> teams = Team.getAllTeams();
@@ -36,10 +49,10 @@ public class App{
         }, new HandlebarsTemplateEngine());
 
         //post: process new team form
-        post("/team/new", (request, response) -> {
+        post("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String newTeamName = request.queryParams("name");
-            String newTeamDescription = request.queryParams("descriptoin");
+            String newTeamDescription = request.queryParams("description");
             Team newTeam = new Team(newTeamName, newTeamDescription);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -54,7 +67,7 @@ public class App{
         }, new HandlebarsTemplateEngine());
 
         //post: process form to add members
-        post("/teams/:id", (request, response) -> {
+        post("/teams/:id/member/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String newMember = request.queryParams("member-name");
             int idOfTeamToAddMembersTo = Integer.parseInt(request.params("id"));

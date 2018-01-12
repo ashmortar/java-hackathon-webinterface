@@ -1,0 +1,23 @@
+{{#partial "content"}}
+    {{#if updateTeam}}
+        <form actions="/teams/{{updateTeam.id}}/update" method="post">
+            <label for="name">Team Name:</label>
+            <input id="name" name="name" type="text" value="{{updateTeam.name}}">
+            <br>
+            <label for="description">Description:</label>
+            <textarea class="form-control" rows="3" id="description" name="description">{{updateTeam.description}}</textarea>
+
+    {{else}}
+        <form actions="/teams/new" method="post">
+            <label for="name">Team Name:</label>
+            <input id="name" name="name" type="text">
+            <br>
+            <label for="description">Description:</label>
+            <input id="description" name="description" type="text">
+    {{/if}}
+        <br>
+        <button type="submit" class="btn btn-default">SAVE</button>
+    </form>
+{{/partial}}
+
+{{> layout.hbs}}
