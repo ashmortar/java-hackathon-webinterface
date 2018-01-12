@@ -1,9 +1,12 @@
 package models;
 
 
+import java.util.ArrayList;
+
 public class Team {
     private String name;
     private String description;
+    private ArrayList<String> members = new ArrayList<>();
 
 
     public Team(String name, String description) {
@@ -17,6 +20,14 @@ public class Team {
     }
 
     public String getDescription() {
-        return "failed test";
+        return description;
+    }
+
+    public ArrayList<String> getMembers() {
+        return members;
+    }
+
+    public void addMember(String name) {
+        members.add(name);
     }
 }

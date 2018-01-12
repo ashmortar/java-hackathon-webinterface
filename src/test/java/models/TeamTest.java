@@ -28,4 +28,14 @@ public class TeamTest {
         Team testTeam = setupNewTeam();
         assertEquals("some description goes here", testTeam.getDescription());
     }
+
+    @Test
+    public void addMember_addsStingInputToMembersArray_true() {
+        Team testTeam = setupNewTeam();
+        testTeam.addMember("Aaron");
+        testTeam.addMember("Natalia");
+        testTeam.addMember("Zach");
+        testTeam.addMember("Ross");
+        assertEquals(4, testTeam.getMembers().size());
+    }
 }
