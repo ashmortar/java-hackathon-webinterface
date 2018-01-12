@@ -18,8 +18,14 @@ public class TeamTest {
     }
 
     @Test
-    public void getName_returnsNameCorrectly() {
+    public void getName_returnsNameCorrectly_true() {
         Team testTeam = setupNewTeam();
         assertEquals("MadLads", testTeam.getName());
+    }
+
+    @Test
+    public void getDescription_returnsDescriptionCorrectly_true() {
+        Team testTeam = setupNewTeam();
+        assertEquals("some description goes here", testTeam.getDescription());
     }
 }
