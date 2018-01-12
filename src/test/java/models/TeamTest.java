@@ -9,9 +9,17 @@ public class TeamTest {
         return new Team("MadLads", "some description goes here");
     }
 
+
+
     @Test
     public void newTeamObject_instantiatesCorreclty_true() {
         Team testTeam = setupNewTeam();
         assertTrue(testTeam instanceof Team);
+    }
+
+    @Test
+    public void getName_returnsNameCorrectly() {
+        Team testTeam = setupNewTeam();
+        assertEquals("MadLads", testTeam.getName());
     }
 }
