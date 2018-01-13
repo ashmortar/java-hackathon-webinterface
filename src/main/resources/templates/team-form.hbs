@@ -1,5 +1,6 @@
 {{#partial "content"}}
     {{#if updateTeam}}
+        <div class="well">
         <form actions="/teams/{{updateTeam.id}}/update" method="post">
             <label for="name">Team Name:</label>
             <input id="name" name="name" type="text" value="{{updateTeam.name}}">
@@ -8,6 +9,7 @@
             <textarea class="form-control" rows="3" id="description" name="description">{{updateTeam.description}}</textarea>
 
     {{else}}
+        <div class="well">
         <form actions="/teams/new" method="post">
             <label for="name">Team Name:</label>
             <input id="name" name="name" type="text">
@@ -18,6 +20,7 @@
         <br>
         <button type="submit" class="btn btn-default">SAVE</button>
     </form>
+    </div>
 {{/partial}}
 
 {{> layout.hbs}}

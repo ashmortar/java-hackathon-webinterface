@@ -1,4 +1,5 @@
 {{#partial "content"}}
+    <div class="well">
     <h3>{{team.name}}</h3>
     <p>{{team.description}}</p>
     <ul>Members:
@@ -6,7 +7,9 @@
         <li>{{this}}</li>
     {{/each}}
     </ul>
+    </div>
     <hr>
+    <div class="well">
     <h5>add a new member:</h5>
     <form action="/teams/{{team.id}}/member/new" method="post">
         <label for="member-name">Member name:</label>
@@ -17,7 +20,8 @@
     <br>
     <a href="/teams/{{team.id}}/update">Update team name/description</a>
     <br>
-    <a href="/"><button class="btn btn-default"><</button> </a>
+    <a href="/"><button class="btn btn-default"><</button></a>
+    </div>
 {{/partial}}
 
 {{> layout.hbs}}
